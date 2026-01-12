@@ -19,6 +19,33 @@ def set_cell_bg(cell, fill_color: str):
     tcPr.append(shd)
 
 
+def set_cell_text_direction(cell, direction="lrTb"):
+    """
+    Set text direction for a cell.
+    direction options:
+    - "btLr" : Bottom to Top, Left to Right (vertical text, rotated 90° counterclockwise)
+    - "tbRl" : Top to Bottom, Right to Left (vertical text, rotated 90° clockwise)
+    - "lrTb" : Left to Right, Top to Bottom (normal horizontal text)
+    """
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
+    textDirection = OxmlElement("w:textDirection")
+    textDirection.set(qn("w:val"), direction)
+    tcPr.append(textDirection)
+
+def set_row_height(row, height_cm):
+    """
+    Set fixed height for a table row.
+    height_cm: height in centimeters
+    """
+    tr = row._tr
+    trPr = tr.get_or_add_trPr()
+    trHeight = OxmlElement('w:trHeight')
+    trHeight.set(qn('w:val'), str(int(height_cm * 567)))  # Convert cm to twips (1 cm = 567 twips)
+    trHeight.set(qn('w:hRule'), 'exact')  # Use 'exact' for fixed height
+    trPr.append(trHeight)
+
+
 def format_cell(cell, bold=False, font_color=None):
     for paragraph in cell.paragraphs:
         for run in paragraph.runs:
@@ -180,7 +207,7 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
         try:
             # ---- Special case cho collect_date ----
             if placeholder == "<collect_date>":
-                current_date = datetime.now().strftime("%m.%Y")  # hoặc "Tháng %m.%Y"
+                current_date = datetime.now().strftime("%m.%Y")
                 replace_placeholder_text(doc, placeholder, current_date)
                 print(f"✅ Replaced {placeholder} with {current_date}")
                 continue
@@ -191,16 +218,61 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
 
             sheet_name = config["sheet"]
             df = pd.read_excel(xls, sheet_name=sheet_name)
-
-            if "columns" in config and config["columns"]:
-                col_indices = config["columns"]
-                selected = [df.columns[i] for i in col_indices if i < len(df.columns)]
-                df = df[selected]
+            
+            # ---- Special case for TRANSPOSE ----
+            if config.get("transpose", False):
+                print(f"   🔄 Transposing data for {placeholder}...")
+                
+                # CRITICAL: First limit rows, then select columns
+                max_rows_transpose = config.get("max_rows", 6)  # Default 6 rows for Volume Info
+                if len(df) > max_rows_transpose:
+                    df = df.head(max_rows_transpose)
+                    print(f"   ✓ Limited to {max_rows_transpose} rows before transpose")
+                
+                # Select columns A-F (indices 0-5)
+                if "columns" in config and config["columns"]:
+                    col_indices = config["columns"]
+                    selected_cols = [df.columns[i] for i in col_indices if i < len(df.columns)]
+                    df = df[selected_cols]
+                    print(f"   ✓ Selected {len(selected_cols)} columns: {selected_cols}")
+                
+                # Now transpose: columns become rows
+                df_transposed = df.T
+                df_transposed.reset_index(inplace=True)
+                
+                # Set column names: First column = "volume_mount_point", rest are drive names from first row
+                if len(df) > 0:
+                    # Use values from first column of original data as column headers
+                    drive_names = df.iloc[:, 0].tolist()
+                    new_columns = ["volume_mount_point"] + [str(val) for val in drive_names]
+                else:
+                    new_columns = ["volume_mount_point"] + [f"Drive {i+1}" for i in range(len(df_transposed.columns) - 1)]
+                
+                df_transposed.columns = new_columns
+                
+                # Remove columns that are all NaN or have 'nan' in header
+                df_transposed = df_transposed.loc[:, ~df_transposed.columns.str.lower().str.contains('nan', na=False)]
+                
+                # Remove first row (volume_mount_point row that duplicates column headers)
+                df_transposed = df_transposed.iloc[1:].reset_index(drop=True)
+                
+                df = df_transposed
+                
+                print(f"   ✓ Transposed shape: {df.shape}")
+                print(f"   ✓ New columns: {list(df.columns)}")
+            # ------------------------------------
+            else:
+                # Normal column selection (no transpose)
+                if "columns" in config and config["columns"]:
+                    col_indices = config["columns"]
+                    selected = [df.columns[i] for i in col_indices if i < len(df.columns)]
+                    df = df[selected]
 
             max_rows = config.get("max_rows", None)
             if max_rows and len(df) > max_rows:
                 df = df.head(max_rows)
-# khúc này là để tìm placeholder 
+
+            # Find placeholder and insert table
             for p in doc.paragraphs:
                 if placeholder in p.text:
                     table = doc.add_table(rows=1, cols=len(df.columns))
@@ -208,23 +280,53 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
                     set_table_borders(table)   
 
                     hdr_cells = table.rows[0].cells
+
+                    set_row_height(table.rows[0], 1.8)
+
+                    
+                    # Check if vertical header is requested
+                    use_vertical_header = config.get("vertical_header", False)
+                    
                     for j, col in enumerate(df.columns):
                         hdr_cells[j].text = str(col)
                         set_cell_bg(hdr_cells[j], "0066CC")
                         format_cell(hdr_cells[j], bold=True, font_color=RGBColor(255, 255, 255))
+                        
+                        # Apply vertical text direction if requested
+                        if use_vertical_header:
+                            set_cell_text_direction(hdr_cells[j], "tbRl")  # Top to Bottom, Right to Left
 
+                    # Get list of columns that should remain horizontal (for body cells)
+                    horizontal_columns = config.get("horizontal_columns", [])
+                    vertical_body = config.get("vertical_body", False)
+                    
                     for _, row in df.iterrows():
-                        row_cells = table.add_row().cells
+                        new_row = table.add_row()
+                        row_cells = new_row.cells
+                        
+                        # Set row height to 1.8cm
+                        set_row_height(new_row, 1.8)
+                        
                         for j, val in enumerate(row):
                             row_cells[j].text = str(val)
                             format_cell(row_cells[j])
+                            
+                            # Apply vertical text direction to body cells if requested
+                            if vertical_body:
+                                col_name = df.columns[j]
+                                # Only apply vertical if column is not in horizontal_columns list
+                                if col_name not in horizontal_columns:
+                                    set_cell_text_direction(row_cells[j], "tbRl")
+                    
 
                     p._element.getparent().replace(p._element, table._element)
 
-            print(f"Replaced {placeholder} with sheet '{sheet_name}' (rows={len(df)})")
+            print(f"✅ Replaced {placeholder} with sheet '{sheet_name}' (rows={len(df)})")
 
         except Exception as e:
             print(f"⚠️ Could not process {placeholder}: {e}")
+            import traceback
+            traceback.print_exc()
 
     # Process chart placeholders
     if chart_mapping:
@@ -271,6 +373,7 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
         doc.save(new_output)
         print(f"\n⚠️ File gốc đang được mở. Đã lưu thành: {new_output}")
     
+    # Cleanup temp images
     for temp_img in temp_images:
         try:
             if os.path.exists(temp_img):
@@ -280,26 +383,80 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
 
 
 if __name__ == "__main__":
+    # ===== CẤU HÌNH ĐƯỜNG DẪN =====
     template_folder = r"D:\INTERNSHIP\SQL_merge_260112\SQL_merge\SQL_merge\rptemplate"
     excel_folder = r"D:\INTERNSHIP\SQL_merge_260112\SQL_merge\SQL_merge\output"
     output_folder = r"D:\INTERNSHIP\SQL_merge_260112\SQL_merge\SQL_merge\reports"
     os.makedirs(output_folder, exist_ok=True)
 
+    # ===== MAPPING CỦA CÁC BẢNG =====
     mapping = {
-        "<file_size>": {"sheet": "File Sizes and Space", "columns": [0, 1, 2, 3, 4, 5, 7], "max_rows": 50},
-        "<fileio>": {"sheet": "IO Stats By File", "max_rows": 50},
-        "<conn_count>": {"sheet": "Connection Counts by IP Address", "max_rows": 50},
-        "<cpu_usage>": {"sheet": "CPU Usage by Database", "columns": [0, 1, 3], "max_rows": 50},
-        "<io_usage>": {"sheet": "IO Usage By Database", "columns": [0, 1, 3], "max_rows": 50},
-        "<buffer_usage>": {"sheet": "Total Buffer Usage by Database", "columns": [0, 1, 3], "max_rows": 50},
-        "<top_worker>": {"sheet": "Top Worker Time Queries", "columns": [0, 1, 2, 4], "max_rows": 50},
-        "<missing_index>": {"sheet": "Missing Indexes", "columns": [2, 5, 6, 7, 9], "max_rows": 50},
-        "<agent_job>": {"sheet": "SQL Server Agent Jobs", "columns": [0, 1, 2, 3, 4, 8, 9], "max_rows": 50},
-        "<recent_bk>": {"sheet": "Recent Full Backups", "columns": [2, 3, 4, 5, 11], "max_rows": 50},
+        # NEW: Volume Info with TRANSPOSE
+        "<volume_info>": {
+            "sheet": "Volume Info",  # Hoặc tên chính xác của sheet
+            "columns": [0, 1, 2, 3, 4, 5],  # A-F (indices 0-5)
+            "transpose": True,  # QUAN TRỌNG: Bật transpose
+            "max_rows": 6  # LẤY 6 HÀNG ĐẦU TIÊN (A1:F6) bao gồm Total Size, Available Size, Space Free %
+        },
+        
+        # Các mapping khác giữ nguyên
+        "<file_size>": {
+            "sheet": "File Sizes and Space",
+            "columns": [0, 1, 2, 3, 4, 5, 7],
+            "max_rows": 50
+        },
+        "<fileio>": {
+            "sheet": "IO Stats By File",
+            "max_rows": 50,
+            "vertical_header": True,  # Text direction dọc cho header
+            "vertical_body": True,  # Text direction dọc cho body cells
+            "horizontal_columns": ["Database Name", "Logical Name", "type_desc", "Physical Name","file_id"],  # Các cột giữ nằm ngang
+            "header_height_cm": 2.0,  # Header height 2cm
+            "row_height_cm": 1.0  # Body row height 1cm
+        },
+        "<conn_count>": {
+            "sheet": "Connection Counts by IP Address",
+            "max_rows": 50
+        },
+        "<cpu_usage>": {
+            "sheet": "CPU Usage by Database",
+            "columns": [0, 1, 3],
+            "max_rows": 50
+        },
+        "<io_usage>": {
+            "sheet": "IO Usage By Database",
+            "columns": [0, 1, 3],
+            "max_rows": 50
+        },
+        "<buffer_usage>": {
+            "sheet": "Total Buffer Usage by Database",
+            "columns": [0, 1, 3],
+            "max_rows": 50
+        },
+        "<top_worker>": {
+            "sheet": "Top Worker Time Queries",
+            "columns": [0, 1, 2, 4],
+            "max_rows": 50
+        },
+        "<missing_index>": {
+            "sheet": "Missing Indexes",
+            "columns": [2, 5, 6, 7, 9],
+            "max_rows": 50
+        },
+        "<agent_job>": {
+            "sheet": "SQL Server Agent Jobs",
+            "columns": [0, 1, 2, 3, 4, 8, 9],
+            "max_rows": 50
+        },
+        "<recent_bk>": {
+            "sheet": "Recent Full Backups",
+            "columns": [2, 3, 4, 5, 11],
+            "max_rows": 50
+        },
         "<collect_date>": {},
     }
 
-    # Chart mapping for pie charts
+    # ===== CHART MAPPING =====
     chart_mapping = {
         "<cpu_usage_chart>": {
             "sheet": "CPU Usage by Database",
@@ -324,6 +481,7 @@ if __name__ == "__main__":
         },
     }
 
+    # ===== XỬ LÝ TẤT CẢ CÁC TEMPLATE =====
     for template_file in os.listdir(template_folder):
         # Skip temporary Word files and non-docx files
         if not template_file.lower().endswith(".docx") or template_file.startswith("~$"):
@@ -342,7 +500,6 @@ if __name__ == "__main__":
 
         excel_match = None
         for excel_file in os.listdir(excel_folder):
-            # Skip temporary Excel files
             if keyword in excel_file and excel_file.lower().endswith(".xlsx") and not excel_file.startswith("~$"):
                 excel_match = excel_file
                 break
@@ -353,6 +510,11 @@ if __name__ == "__main__":
 
         output_file = os.path.join(output_folder, f"{template_file}")
 
+        print(f"\n{'='*60}")
+        print(f"📝 Processing: {template_file}")
+        print(f"📊 Excel: {excel_match}")
+        print(f"{'='*60}")
+
         generate_report(
             excel_file=os.path.join(excel_folder, excel_match),
             template_file=os.path.join(template_folder, template_file),
@@ -360,3 +522,5 @@ if __name__ == "__main__":
             mapping=mapping,
             chart_mapping=chart_mapping,
         )
+
+    print(f"\n✅ HOÀN THÀNH! Tất cả reports đã được tạo trong: {output_folder}")
