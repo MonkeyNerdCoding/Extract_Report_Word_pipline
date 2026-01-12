@@ -1,0 +1,3 @@
+"File Name","Physical Name","Total Size in MB","Available Space In MB","file_id","Filegroup Name","is_percent_growth","growth","is_default","is_read_only"
+"KHTT_ST","E:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\DATA\KHTT_ST.mdf","76411.88","10049.50","1","PRIMARY","False","128","True","False"
+"KHTT_ST_log","E:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Log\KHTT_ST_log.ldf","285.06","118.32","2","","True","10","",""

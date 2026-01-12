@@ -1,0 +1,3 @@
+"Database Name","Logical Name","file_id","type_desc","Physical Name","Size on Disk (MB)","num_of_reads","num_of_writes","io_stall_read_ms","io_stall_write_ms","IO Stall Reads Pct","IO Stall Writes Pct","Writes + Reads","MB Read","MB Written","# Reads Pct","# Write Pct","Read Bytes Pct","Written Bytes Pct"
+"SDI_CFNQ","SDI_CFNQ","1","ROWS","E:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\DATA\SDI_CFNQ.mdf","184.00","694","11644","508","5976","7.8","92.2","12338","16.50","90.97","5.6","94.4","15.4","84.6"
+"SDI_CFNQ","SDI_CFNQ_log","2","LOG","E:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Log\SDI_CFNQ_log.ldf","1.00","2997","34805","1508","22509","6.3","93.7","37802","13.02","103.91","7.9","92.1","11.1","88.9"

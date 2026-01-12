@@ -1,0 +1,2 @@
+"Database Name","Recovery Model","Total Log Space (MB)","Used Log Space (MB)","Used Log Space %","Used Log Space Since Last Backup (MB)","log_reuse_wait_desc"
+"ReportServer","FULL","6.12","0.91","14.91","0.06","NOTHING"

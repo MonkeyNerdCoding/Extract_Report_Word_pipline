@@ -1,0 +1,2 @@
+"Database Name","Recovery Model","Total Log Space (MB)","Used Log Space (MB)","Used Log Space %","Used Log Space Since Last Backup (MB)","log_reuse_wait_desc"
+"SGCReport_2016_2021","FULL","0.99","0.38","38.48","0.10","NOTHING"

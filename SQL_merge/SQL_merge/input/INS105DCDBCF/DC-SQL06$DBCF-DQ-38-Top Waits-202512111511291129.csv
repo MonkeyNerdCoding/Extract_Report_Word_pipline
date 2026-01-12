@@ -1,0 +1,6 @@
+"WaitType","Wait Percentage","AvgWait_Sec","AvgRes_Sec","AvgSig_Sec","Wait_Sec","Resource_Sec","Signal_Sec","Wait Count","Help/Info URL"
+"CXPACKET","90.63","0.0135","0.0134","0.0001","269319233.35","268014381.18","1304852.17","19935243143","https://www.sqlskills.com/help/waits/CXPACKET"
+"LATCH_EX","6.93","0.0024","0.0023","0.0001","20583653.31","20089311.65","494341.66","8635997301","https://www.sqlskills.com/help/waits/LATCH_EX"
+"LCK_M_SCH_S","0.86","372.7475","372.7474","0.0001","2551083.71","2551083.32","0.39","6844","https://www.sqlskills.com/help/waits/LCK_M_SCH_S"
+"ASYNC_NETWORK_IO","0.58","0.0169","0.0168","0.0000","1719404.53","1714667.02","4737.51","102011462","https://www.sqlskills.com/help/waits/ASYNC_NETWORK_IO"
+"LCK_M_IS","0.15","31.6234","31.6232","0.0002","459740.44","459737.87","2.56","14538","https://www.sqlskills.com/help/waits/LCK_M_IS"

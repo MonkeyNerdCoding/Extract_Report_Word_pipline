@@ -1,0 +1,2 @@
+"ObjectName","IndexName","index_id","user_seeks","user_scans","user_lookups","Total Reads","Writes","Index Type","Fill Factor","has_filter","filter_definition","last_user_scan","last_user_lookup","last_user_seek"
+"tbl_TestDRDC","PK_tbl_TestDRDC","1","","","","","","CLUSTERED","0","False","","","",""

@@ -1,0 +1,2 @@
+"Database Name","Recovery Model","Total Log Space (MB)","Used Log Space (MB)","Used Log Space %","Used Log Space Since Last Backup (MB)","log_reuse_wait_desc"
+"KHTT_ST22","FULL","176.93","172.94","97.75","172.68","LOG_BACKUP"

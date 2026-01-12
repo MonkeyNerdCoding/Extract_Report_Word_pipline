@@ -1,0 +1,7 @@
+"Object Name","object_id","type_desc","Statistics Name","stats_id","no_recompute","auto_created","is_incremental","is_temporary","modification_counter","rows","rows_sampled","last_updated"
+"ConfigurationInfo","69575286","USER_TABLE","IX_ConfigurationInfo","1","False","False","False","False","3","17","17","12/9/2015 9:58:44 AM"
+"Users","309576141","USER_TABLE","IX_Users","1","False","False","False","False","2","1","1","12/9/2015 9:58:43 AM"
+"Users","309576141","USER_TABLE","_WA_Sys_00000004_1273C1CD","3","False","True","False","False","2","1","1","12/9/2015 9:58:43 AM"
+"Users","309576141","USER_TABLE","_WA_Sys_00000003_1273C1CD","4","False","True","False","False","2","1","1","12/9/2015 9:58:43 AM"
+"Keys","2121058592","USER_TABLE","PK_Keys","1","False","False","False","False","1","1","1","12/9/2015 9:59:58 AM"
+"Keys","2121058592","USER_TABLE","_WA_Sys_00000004_7E6CC920","2","False","True","False","False","1","1","1","12/9/2015 9:59:58 AM"

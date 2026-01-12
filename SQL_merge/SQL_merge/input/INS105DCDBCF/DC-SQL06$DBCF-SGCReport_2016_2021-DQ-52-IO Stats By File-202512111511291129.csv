@@ -1,0 +1,3 @@
+"Database Name","Logical Name","file_id","type_desc","Physical Name","Size on Disk (MB)","num_of_reads","num_of_writes","io_stall_read_ms","io_stall_write_ms","IO Stall Reads Pct","IO Stall Writes Pct","Writes + Reads","MB Read","MB Written","# Reads Pct","# Write Pct","Read Bytes Pct","Written Bytes Pct"
+"SGCReport_2016_2021","SGCReport_2016_2021","1","ROWS","E:\DBCRM2017\SGCReport_2016_2021.mdf","36502.00","3628","251627","2057","845350","0.2","99.8","255255","75.65","31424.60","1.4","98.6","0.2","99.8"
+"SGCReport_2016_2021","SGCReport_2016_2021_log","2","LOG","E:\DBCRM2017\SGCReport_2016_2021_log.ldf","1.00","56","868633","29","949573","0.0","100.0","868689","0.86","41164.96","0.0","100.0","0.0","100.0"

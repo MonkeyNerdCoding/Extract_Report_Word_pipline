@@ -1,0 +1,3 @@
+"Database Name","Schema Name","Object Name","Index Name","index_id","index_type_desc","avg_fragmentation_in_percent","fragment_count","page_count","fill_factor","has_filter","filter_definition","allow_page_locks"
+"SDI_CFNQ","dbo","INVEVT","","0","HEAP","20.5217391304348","119","4565","0","False","","True"
+"SDI_CFNQ","dbo","INVMST","","0","HEAP","9.98851894374283","89","6957","0","False","","True"

@@ -1,0 +1,5 @@
+"Object Name","Object Type","Index Name","Statistics Date","auto_created","no_recompute","user_created","is_incremental","is_temporary","row_count","used_page_count"
+"dbo.Derived_Values","USER_TABLE","PK_Derived_Values","9/18/2013 3:55:02 PM","False","False","False","False","False","3","2"
+"dbo.acLink","USER_TABLE","PK_acLink","9/25/2012 1:19:23 PM","False","False","False","False","False","2","4"
+"dbo.test1","USER_TABLE","PK_test1","9/5/2012 11:05:42 AM","False","False","False","False","False","2","4"
+"dbo.USysRibbons","USER_TABLE","PK_USysRibbons","8/31/2012 2:16:57 PM","False","False","False","False","False","6","10"

@@ -1,0 +1,614 @@
+"session_id","Database Name","login_time","cpu_time","logical_reads","status","Input Buffer"
+"51","KHTT_ST","12/11/2025 4:18:49 PM","0","0","sleeping",""
+"54","KHTT_ST","12/11/2025 3:00:00 PM","0","0","sleeping",""
+"56","KHTT_ST","12/11/2025 1:07:01 AM","0","0","sleeping",""
+"57","KHTT_ST","12/11/2025 1:07:00 AM","0","32","sleeping","SELECT [Version] FROM UpdateList ul WHERE ul.AppType = '8'"
+"58","KHTT_ST","12/8/2025 10:06:44 PM","25902","130412","sleeping","SELECT ISNULL(SUM(khqtcd.SoLuongToiDa * sodiem),0) AS TongDiem
+                                        FROM   KhachHang_QuaTang_CapDo khqtcd
+                                               INNER JOIN QuaTang qt
+                                                    ON  qt.MaHH = khqtcd.MaHH
+                                        WHERE  khqtcd.MaThe13 = '4365622634450' "
+"60","KHTT_ST","12/11/2025 10:26:05 AM","0","120","sleeping","select DiemNamCu from ChiThuongCuoiNam where MaThe13 = '7076311923720'"
+"62","KHTT_ST","12/11/2025 4:22:12 PM","0","0","sleeping",""
+"63","KHTT_ST","12/11/2025 2:27:31 PM","15","75","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0937734704' OR kh.DTBan = '0937734704') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"66","KHTT_ST","12/11/2025 7:07:00 AM","16","1446","sleeping","select top 1 Ngay from TichLuyTrongNgay"
+"67","KHTT_ST","12/11/2025 1:21:38 AM","0","0","sleeping",""
+"68","KHTT_ST","12/11/2025 4:22:17 PM","0","41","sleeping","(@Date datetime)select sum(Amount) from TNDSERV17 
+                                                        where CUSTNUM = '7632992377' 
+                                                        and DATE = @Date
+                                                        and left([TIME],5) = '16:14' 
+                                                        and TX_NO = 191 
+                                                        and REGISTER = '01' 
+                                                        and TILLID = '38351' 
+                                                        and STORE = '2195'
+                                                        and TENDER_CODE = '' 
+                                                        and BANKCODE = ''"
+"69","KHTT_ST","12/11/2025 10:30:25 AM","297","83557","sleeping","SELECT TOP 10 *  FROM 
+                                            ((SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh01 cs WHERE MaThe13 = '9364178635800')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh02 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh03 cs WHERE MaThe13 = '9364178635800')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh04 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh05 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh06 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh07 cs WHERE MaThe13 = '9364178635800')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh08 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh09 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh10 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh11 cs WHERE MaThe13 = '9364178635800')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13',
+                                                    cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh cs WHERE MaThe13 = '9364178635800')) a
+                                              order by a.NgayHD desc"
+"70","KHTT_ST","12/11/2025 4:20:42 PM","0","0","sleeping",""
+"71","KHTT_ST","12/11/2025 3:21:30 PM","16","62","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0963895171' OR kh.DTBan = '0963895171') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"73","KHTT_ST","12/11/2025 3:00:00 PM","0","0","sleeping",""
+"74","KHTT_ST","12/11/2025 3:19:33 PM","282","82732","sleeping","SELECT TOP 10 *  FROM 
+                                            ((SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh01 cs WHERE MaThe13 = '4862000805131')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh02 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh03 cs WHERE MaThe13 = '4862000805131')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh04 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh05 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh06 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh07 cs WHERE MaThe13 = '4862000805131')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh08 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh09 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh10 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh11 cs WHERE MaThe13 = '4862000805131')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13',
+                                                    cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh cs WHERE MaThe13 = '4862000805131')) a
+                                              order by a.NgayHD desc"
+"75","KHTT_ST","12/11/2025 7:17:38 AM","0","21","sleeping","select * from campgn where getdate() between startdate and enddate and inclusive='Y'"
+"76","KHTT_ST","12/11/2025 3:03:09 PM","0","30","sleeping",""
+"77","KHTT_ST","12/11/2025 8:35:43 AM","15840","78634","sleeping","set dateformat ymd SELECT * FROM KhachHang  WHERE MATHE13 = N'5327433672648'"
+"78","KHTT_ST","12/4/2025 7:54:22 AM","0","0","sleeping",""
+"81","KHTT_ST","12/11/2025 4:06:17 PM","14580","79255","sleeping","set dateformat ymd SELECT * FROM KhachHang  WHERE MATHE13 = N'6602532397531'"
+"84","KHTT_ST","12/4/2025 2:02:40 PM","16","34","sleeping","    DECLARE @filePath VARCHAR(255);
+    DECLARE @fileName VARCHAR(255);
+    DECLARE @bcpCommand VARCHAR(8000);
+    DECLARE @dataToExport varbinary(max); -- Assuming your binary data is in a VARBINARY(MAX) column
+
+    -- Example: Retrieve a specific binary data and define file path/name
+    SELECT @dataToExport = FileData, @fileName = 'script.txt'
+    FROM ScriptTable; -- Adjust your WHERE clause as needed
+
+    SET @filePath = 'D:\2025\' + @fileName; -- Define the full path and filename
+
+    -- Build the bcp command to export the binary data to a file
+    SET @bcpCommand = 'bcp ""SELECT FileData FROM KHTT_ST.dbo.ScriptTable"" queryout ""' + @filePath + '"" -T -N';
+	print(@bcpCommand)
+    EXEC xp_cmdshell @bcpCommand;
+"
+"85","KHTT_ST","12/11/2025 3:23:20 PM","174564","861452","sleeping","set dateformat ymd SELECT * FROM KhachHang  WHERE MATHE13 = N'5288126711948'"
+"89","KHTT_ST","12/11/2025 6:31:14 AM","15","83","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0986943003' OR kh.DTBan = '0986943003') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"90","KHTT_ST","12/11/2025 4:20:41 PM","0","47","sleeping","(@Date datetime)select sum(Amount) from TNDSERV15 
+                                                        where CUSTNUM = '8281791726' 
+                                                        and DATE = @Date
+                                                        and left([TIME],5) = '16:07' 
+                                                        and TX_NO = 206 
+                                                        and REGISTER = '02' 
+                                                        and TILLID = '27460' 
+                                                        and STORE = '691'
+                                                        and TENDER_CODE = '' 
+                                                        and BANKCODE = ''"
+"92","KHTT_ST","12/11/2025 2:11:49 PM","31","134","sleeping","select DiemNamCu from ChiThuongCuoiNam where MaThe13 = '3480111519962'"
+"93","KHTT_ST","12/11/2025 4:14:02 PM","204","99","sleeping","select DiemNamCu from ChiThuongCuoiNam where MaThe13 = '9015922984100'"
+"94","KHTT_ST","12/11/2025 3:48:36 PM","16","62","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0353799142' OR kh.DTBan = '0353799142') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"95","KHTT_ST","12/11/2025 9:03:20 AM","0","4","sleeping","(@p__linq__0 varchar(8000))SELECT TOP (1) 
+    [Extent1].[MaThe13] AS [MaThe13], 
+    [Extent1].[DoanhSoDauNgay] AS [DoanhSoDauNgay], 
+    [Extent1].[DoanhSoTrongNgay] AS [DoanhSoTrongNgay], 
+    [Extent1].[DiemMuaHangDauNgay] AS [DiemMuaHangDauNgay], 
+    [Extent1].[DiemThuongTheoHDDauNgay] AS [DiemThuongTheoHDDauNgay], 
+    [Extent1].[DiemThuongKhongTheoHDDauNgay] AS [DiemThuongKhongTheoHDDauNgay], 
+    [Extent1].[TongDiemDauNgay] AS [TongDiemDauNgay], 
+    [Extent1].[DiemDaNhanThuongDauNgay] AS [DiemDaNhanThuongDauNgay], 
+    [Extent1].[DiemMuaHangTrongNgay] AS [DiemMuaHangTrongNgay], 
+    [Extent1].[DiemThuongTheoHDTrongNgay] AS [DiemThuongTheoHDTrongNgay], 
+    [Extent1].[DiemThuongKhongTheoHDTrongNgay] AS [DiemThuongKhongTheoHDTrongNgay], 
+    [Extent1].[TongDiemTrongNgay] AS [TongDiemTrongNgay], 
+    [Extent1].[TongDiemCuoiNgay] AS [TongDiemCuoiNgay], 
+    [Extent1].[DiemDaNhanThuong] AS [DiemDaNhanThuong], 
+    [Extent1].[Ngay] AS [Ngay], 
+    [Extent1].[MaCapDoDauNgay] AS [MaCapDoDauNgay]
+    FROM [dbo].[TichLuyTrongNgay] AS [Extent1]
+    WHERE ([Extent1].[MaThe13] = @p__linq__0) AND (@p__linq__0 IS NOT NULL)"
+"96","KHTT_ST","12/11/2025 9:54:25 AM","0","57","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.MaThe7 = '2107274') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"97","KHTT_ST","12/11/2025 3:30:13 PM","0","7","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0938803814' OR kh.DTBan = '0938803814') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"98","KHTT_ST","12/11/2025 4:21:52 PM","0","0","sleeping",""
+"99","KHTT_ST","12/11/2025 3:01:28 PM","0","7","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0836397919' OR kh.DTBan = '0836397919') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"102","KHTT_ST","12/11/2025 4:17:14 PM","16","134","sleeping","select DiemNamCu from ChiThuongCuoiNam where MaThe13 = '2310946689077'"
+"103","KHTT_ST","12/11/2025 3:27:26 PM","16","75","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0943881503' OR kh.DTBan = '0943881503') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"104","KHTT_ST","12/11/2025 3:55:02 PM","31","69","sleeping","(@NgayHD datetime)SELECT DISTINCT kmp.MaDotKhuyenMai,
+                                               kmp.TenDotKhuyenMai,
+                                               kmp.MaNVTao,
+                                               kmp.TuNgay,
+                                               kmp.DenNgay,
+                                               kmp.STT,
+                                               kmp.GhiChu,
+                                               kmp.DaApDung,
+                                               kmp.MaNVCapNhat,
+                                               kmp.DaThucHien,
+                                               kmp.HinhThucKM,
+                                               kmp.IsExcept,
+                                               kmp.IsCombo,
+                                               cmp.CTKhuyenMaiID,
+                                               cmp.STT,
+                                               cmp.MaLoaiKhuyenMai,
+                                               cmp.DieuKien,
+                                               cmp.DiemMuaHang,
+                                               cmp.DiemThuong AS DiemThuongCT,
+                                               cmp.DiemThuongGioiHan  AS DiemThuongGioiHanCT,
+                                               cmp.GiaTriTongHoaDon,
+                                               cmp.GhiChu,
+                                               dkkmPos.*,
+                                               kmstp.MaST
+                                        FROM   KhuyenMaiPOS kmp
+                                               LEFT JOIN CTKhuyenMaiPOS cmp
+                                                    ON  cmp.MaDotKhuyenMai = kmp.MaDotKhuyenMai
+                                               LEFT JOIN KhuyenMai_SieuThiPOS kmstp
+                                                    ON  kmstp.MaDotKhuyenMai = kmp.MaDotKhuyenMai
+                                               LEFT JOIN DieuKienKhuyenMaiPOS dkkmPos
+                                                    ON  dkkmPos.CTKhuyenMaiID = cmp.CTKhuyenMaiID
+                                            WHERE  1 = 1  AND cmp.MaLoaiKhuyenMai = 12
+                                                   AND kmp.DaApDung = 1
+                                                   AND @NgayHD BETWEEN kmp.TuNgay AND kmp.DenNgay
+                                                   AND cmp.GiaTriTongHoaDon <= 76486.800 
+                                                   AND kmstp.MaST LIKE 
+                                                       CASE kmstp.MaST
+                                                            WHEN '0000' THEN '%%'
+                                                            ELSE '2210'
+                                                       END
+                                            ORDER BY
+                                                   kmp.STT ASC,
+                                                   cmp.STT ASC"
+"105","KHTT_ST","12/11/2025 1:59:18 PM","281","82585","sleeping","SELECT TOP 10 *  FROM 
+                                            ((SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh01 cs WHERE MaThe13 = '7823513176528')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh02 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh03 cs WHERE MaThe13 = '7823513176528')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh04 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh05 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh06 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh07 cs WHERE MaThe13 = '7823513176528')
+                                              UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh08 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh09 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh10 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13', cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh11 cs WHERE MaThe13 = '7823513176528')
+                                                UNION ALL 
+                                            (SELECT cs.MaThe13 as N'M? th? 13',
+                                                    cs.NgayHD,
+                                                       CONVERT(VARCHAR(20),cs.NgayHD,103) as N'Ng?y mua',
+                                                       cs.SoHD as N'S? H?',
+                                                       cs.MaST as N'M? ST',
+                                                       cs.MaQuay as N'M? qu?y',
+                                                       cs.TongTienHD as N'T?ng ti?n',
+                                                       cs.DiemMuaHang as N'?i?m mua h?ng',
+                                                       cs.DiemThuongTheoHD as N'?i?m th??ng',
+                                                       cs.DaVanChuyen as N'?? t?nh ?i?m'
+                                              FROM CTPhatSinh cs WHERE MaThe13 = '7823513176528')) a
+                                              order by a.NgayHD desc"
+"106","KHTT_ST","12/2/2025 10:38:03 AM","25442","219570","sleeping","set dateformat ymd SELECT * FROM KhuVuc  WHERE MAKHUVUC = N'9'"
+"107","KHTT_ST","12/11/2025 4:21:51 PM","15","89","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.MaThe13 = '0221316778791') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"108","KHTT_ST","12/11/2025 11:32:29 AM","16","57","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.MaThe7 = '3155208') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"109","KHTT_ST","12/11/2025 4:20:38 PM","14048","728222","sleeping","EXEC	[dbo].[getTNDSERV]
+		                                        @tble = N'TNDSERV30'"
+"110","KHTT_ST","12/11/2025 11:12:45 AM","52317","799486","sleeping","(@Ngay datetime,@Ngay1 datetime)SELECT ISNULL(SUM(khqtcd.SoLuongDaNhan) ,0) AS SoLuongPQT
+                                        FROM   KhachHang_QuaTang_CapDo khqtcd                                             
+                                        WHERE  khqtcd.MaThe13 = '0507717492291' "
+"111","KHTT_ST","12/11/2025 4:17:49 PM","9688","725826","sleeping","EXEC	[dbo].[getTNDSERV]
+		                                        @tble = N'TNDSERV30'"
+"112","KHTT_ST","12/11/2025 12:34:07 PM","0","57","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.MaThe7 = '6119777') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"113","KHTT_ST","12/11/2025 4:00:17 PM","16","75","sleeping","SELECT * FROM 
+                                        (SELECT * FROM KhachHang kh
+                                        WHERE kh.DTDD = '0919138816' OR kh.DTBan = '0919138816') kh
+                                        LEFT JOIN QuanHuyen qh ON qh.MaQuanHuyen = kh.MaQuanHuyen
+                                        LEFT JOIN TinhTP tt ON tt.MaTinhTP = kh.MaTinhTP
+                                        LEFT JOIN QuocGia qg ON qg.MaQuocGia = kh.MaQuocGia"
+"114","KHTT_ST","12/11/2025 4:21:55 PM","0","1150","sleeping","SELECT * FROM UpdateList WHERE AppType = '6'"
+"117","KHTT_ST","12/11/2025 1:43:11 PM","39174","194260","sleeping","set dateformat ymd SELECT * FROM KhachHang  WHERE MATHE13 = N'9647033353003'"
+"119","KHTT_ST","12/11/2025 4:19:11 PM","14920","728324","sleeping","EXEC	[dbo].[getTNDSERV]
+		                                        @tble = N'TNDSERV30'"
+"120","KHTT_ST","12/11/2025 4:22:12 PM","14182","729527","sleeping","EXEC	[dbo].[getTNDSERV]
+		                                        @tble = N'TNDSERV30'"
+"122","KHTT_ST","12/11/2025 3:00:00 PM","0","0","sleeping",""
+"124","KHTT_ST","12/11/2025 1:35:23 PM","45027","215176","sleeping","set dateformat ymd SELECT * FROM KhachHang  WHERE MATHE13 = N'9481614518401'"

@@ -1,0 +1,2 @@
+"ObjectName","IndexName","index_id","Writes","Total Reads","Index Type","Fill Factor","has_filter","filter_definition","last_system_update","last_user_update"
+"tbl_TestDRDC","PK_tbl_TestDRDC","1","","","CLUSTERED","0","False","","",""

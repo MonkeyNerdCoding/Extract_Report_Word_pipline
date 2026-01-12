@@ -1,0 +1,2 @@
+"ObjectName","Table Rows","index_id","Index Data Compression","create_date","lock_on_bulk_load","is_replicated","has_replication_filter","is_tracked_by_cdc","lock_escalation_desc","is_filetable","is_memory_optimized","durability_desc"
+"tbl_TestDRDC","1000","1","NONE","9/6/2017 2:12:28 PM","False","False","False","False","TABLE","False","False","SCHEMA_AND_DATA"

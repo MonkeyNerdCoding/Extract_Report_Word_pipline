@@ -1,0 +1,2 @@
+"table_name","index_name","index_id","partition_number","total_row_lock_waits","total_row_lock_wait_in_ms","total_page_lock_waits","total_page_lock_wait_in_ms","total_lock_wait_in_ms"
+"INVTSERV16","PK_INVTSERV16","1","1","0","0","1","31","31"

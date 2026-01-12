@@ -1,0 +1,6 @@
+"machine_name","server_name","Database Name","recovery_model","Uncompressed Backup Size (MB)","Compressed Backup Size (MB)","Compression Ratio","has_backup_checksums","is_copy_only","encryptor_type","Backup Elapsed Time (sec)","Backup Finish Date","Backup Location","physical_block_size"
+"DC-SQL06","DC-SQL06\DBCF","SGCReport","FULL","16277","4924","3.31","False","True","","58","10/7/2018 3:54:57 PM","\\dc-sql06\BK_AOG\SGCReport.bak","512"
+"DC-SQL06","DC-SQL06\DBCF","SGCReport","FULL","16277","16277","1.00","False","False","","14","10/7/2018 3:51:11 PM","Nul:","512"
+"DC-SQL06","DC-SQL06\DBCF","SGCReport","FULL","13495","3842","3.51","False","True","","78","4/26/2018 10:04:10 PM","\\DC-SQL06\Bk_Rep\SGCReport.bak","512"
+"DC-SQL06","DC-SQL06\DBCF","SGCReport","FULL","13495","13495","1.00","False","False","","13","4/26/2018 9:42:27 PM","Nul:","512"
+"SGC-DBCF","SGC-DBCF","SGCReport","FULL","11827","11827","1.00","False","False","","410","10/10/2017 10:00:12 AM","E:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Backup\SGCReport_101017.bak","512"

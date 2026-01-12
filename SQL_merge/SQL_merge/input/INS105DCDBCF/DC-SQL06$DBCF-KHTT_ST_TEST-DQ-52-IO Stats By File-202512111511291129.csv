@@ -1,0 +1,3 @@
+"Database Name","Logical Name","file_id","type_desc","Physical Name","Size on Disk (MB)","num_of_reads","num_of_writes","io_stall_read_ms","io_stall_write_ms","IO Stall Reads Pct","IO Stall Writes Pct","Writes + Reads","MB Read","MB Written","# Reads Pct","# Write Pct","Read Bytes Pct","Written Bytes Pct"
+"KHTT_ST_TEST","KHTT_ST","1","ROWS","D:\ChiTuyen_TEST_250715\KHTT_ST24.mdf","54699.69","593565","174195","384298237","17121","100.0","0.0","767760","31000.63","6245.90","77.3","22.7","83.2","16.8"
+"KHTT_ST_TEST","KHTT_ST_log","2","LOG","D:\ChiTuyen_TEST_250715\KHTT_ST24_log.ldf","2321.38","5493","106164","7472","138760","5.1","94.9","111657","336.32","5434.57","4.9","95.1","5.8","94.2"

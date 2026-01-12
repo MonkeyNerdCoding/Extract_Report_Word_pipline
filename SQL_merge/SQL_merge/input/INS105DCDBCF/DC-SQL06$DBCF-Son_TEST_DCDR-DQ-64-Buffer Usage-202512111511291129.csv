@@ -1,0 +1,2 @@
+"Schema Name","Object Name","index_id","Buffer size(MB)","BufferCount","Row Count","Compression Type"
+"dbo","tbl_TestDRDC","1","0.03","4","1000","NONE"

@@ -1,0 +1,4 @@
+"machine_name","server_name","Database Name","recovery_model","Uncompressed Backup Size (MB)","Compressed Backup Size (MB)","Compression Ratio","has_backup_checksums","is_copy_only","encryptor_type","Backup Elapsed Time (sec)","Backup Finish Date","Backup Location","physical_block_size"
+"DC-SQL06","DC-SQL06\DBCF","SDI_CFNQ","FULL","126","23","5.36","False","True","","1","10/7/2018 3:53:58 PM","\\dc-sql06\BK_AOG\SDI_CFNQ.bak","512"
+"DC-SQL06","DC-SQL06\DBCF","SDI_CFNQ","FULL","126","23","5.36","False","True","","1","4/26/2018 10:02:49 PM","\\DC-SQL06\Bk_Rep\SDI_CFNQ.bak","512"
+"DC-SQL06","DC-SQL06\DBCF","SDI_CFNQ","FULL","126","126","1.00","False","False","","0","4/26/2018 9:41:55 PM","Nul:","512"

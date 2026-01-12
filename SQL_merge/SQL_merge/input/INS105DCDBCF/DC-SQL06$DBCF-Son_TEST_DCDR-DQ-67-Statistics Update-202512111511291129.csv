@@ -1,0 +1,2 @@
+"Object Name","Object Type","Index Name","Statistics Date","auto_created","no_recompute","user_created","is_incremental","is_temporary","row_count","used_page_count"
+"dbo.tbl_TestDRDC","USER_TABLE","PK_tbl_TestDRDC","","False","False","False","False","False","1000","1005"

@@ -1,0 +1,2 @@
+"Schema Name","Table Name","Index Name","index_id","is_disabled","is_hypothetical","has_filter","fill_factor","Total Writes","Total Reads","Difference"
+"dbo","TichLuyTrongNgay","IX_TichLuyTrongNgay","2","False","False","False","0","5","2","3"

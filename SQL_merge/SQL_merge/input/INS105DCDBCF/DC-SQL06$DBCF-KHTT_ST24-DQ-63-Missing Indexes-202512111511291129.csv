@@ -1,0 +1,4 @@
+"index_advantage","last_user_seek","Database.Schema.Table","missing_indexes_for_table","similar_missing_indexes_for_table","equality_columns","inequality_columns","included_columns","unique_compiles","user_seeks","avg_total_user_cost","avg_user_impact","Table Name","Table Rows"
+"7206.97","12/9/2025 11:19:42 AM","[KHTT_ST24].[dbo].[CTNhanThuong]","1","1","[MaThe13]","","","71","133","54.27","99.84","CTNhanThuong","2077137"
+"244.12","7/25/2025 9:28:42 AM","[KHTT_ST24].[dbo].[TNDSERV16]","1","1","[BANKCODE]","[CUSTNUM]","[TX_NO], [DATE], [TIME], [REGISTER], [TILLID], [TYPE], [TENDER_CODE], [AMOUNT], [SEQNUM], [CHANGEFLAG], [TRAN_REF], [STORE], [DALAY_DT], [NGAYLAY], [TXDATE]","2","2","146.96","83.06","TNDSERV16","13374713"
+"56.74","8/1/2025 9:49:24 AM","[KHTT_ST24].[dbo].[TichLuy]","1","1","","[DoanhSo]","[MaThe13]","1","1","206.49","27.48","TichLuy","3660169"

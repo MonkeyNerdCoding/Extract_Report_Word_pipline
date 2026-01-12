@@ -1,0 +1,2 @@
+"LogDate","ProcessInfo","Text"
+"4/9/2025 10:59:29 AM","Server","SQL Server detected 2 sockets with 10 cores per socket and 20 logical processors per socket, 40 total logical processors; using 40 logical processors based on SQL Server licensing. This is an informational message; no user action is required."

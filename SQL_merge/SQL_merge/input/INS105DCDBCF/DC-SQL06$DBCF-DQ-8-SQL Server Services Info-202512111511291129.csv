@@ -1,0 +1,4 @@
+"servicename","process_id","startup_type_desc","status_desc","last_startup_time","service_account","is_clustered","cluster_nodename","filename"
+"SQL Server (DBCF)","16076","Automatic","Running","4/9/2025 10:59:28 AM +07:00","SGCOOP\spdata","N","","""C:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Binn\sqlservr.exe"" -sDBCF"
+"SQL Server Agent (DBCF)","16740","Automatic","Running","","LocalSystem","N","","""C:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Binn\SQLAGENT.EXE"" -i DBCF"
+"SQL Full-text Filter Daemon Launcher (DBCF)","15280","Manual","Running","4/9/2025 10:59:30 AM +07:00","NT Service\MSSQLFDLauncher$DBCF","N","","""C:\Program Files\Microsoft SQL Server\MSSQL12.DBCF\MSSQL\Binn\fdlauncher.exe"" -s MSSQL12.DBCF"

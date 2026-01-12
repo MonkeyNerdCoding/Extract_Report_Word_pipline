@@ -1,0 +1,2 @@
+"Logical CPU Count","scheduler_count","Hyperthread Ratio","Physical CPU Count","Physical Memory (MB)","Committed Memory (MB)","Committed Target Memory (MB)","Max Workers Count","Affinity Type","SQL Server Start Time","SQL Server Up Time (hrs)","Virtual Machine Type"
+"40","40","20","2","65406","49439","50501","1088","AUTO","4/9/2025 10:59:29 AM","5909","NONE"

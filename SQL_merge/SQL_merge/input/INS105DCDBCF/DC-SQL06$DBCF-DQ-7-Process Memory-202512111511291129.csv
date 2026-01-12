@@ -1,0 +1,2 @@
+"SQL Server Memory Usage (MB)","SQL Server Locked Pages Allocation (MB)","SQL Server Large Pages Allocation (MB)","page_fault_count","memory_utilization_percentage","available_commit_limit_kb","process_physical_memory_low","process_virtual_memory_low"
+"49405","0","0","2620163072","99","10374244","False","False"

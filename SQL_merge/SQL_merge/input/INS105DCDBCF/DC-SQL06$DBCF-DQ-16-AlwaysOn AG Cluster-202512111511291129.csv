@@ -1,0 +1,2 @@
+"cluster_name","quorum_type_desc","quorum_state_desc"
+"DBA-STD-CLUSTER","NODE_AND_FILE_SHARE_MAJORITY","NORMAL_QUORUM"
