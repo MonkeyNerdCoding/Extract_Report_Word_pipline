@@ -73,19 +73,10 @@ def replace_placeholder_text(doc, placeholder, replacement):
                 if placeholder in run.text:
                     run.text = run.text.replace(placeholder, replacement)
 
-
+# ============================================================================================
+# ============================================================================================
+# =======================// khúc này là để tạo chart===========================================
 def create_pie_chart(df, title, output_image, label_col_idx=0, value_col_idx=1, top_n=10):
-    """
-    Tạo pie chart từ DataFrame với style giống hình mẫu.
-    
-    Args:
-        df: DataFrame chứa data
-        title: Tiêu đề chart
-        output_image: Đường dẫn file image output
-        label_col_idx: Index của cột label (default 0)
-        value_col_idx: Index của cột value (default 1)
-        top_n: Số lượng items hiển thị (default 10)
-    """
     try:
         # Lấy top N rows
         df_chart = df.head(top_n).copy()
@@ -107,32 +98,29 @@ def create_pie_chart(df, title, output_image, label_col_idx=0, value_col_idx=1, 
             print(f"   ⚠️ No valid data for chart: {title} (all values are 0, NaN, or invalid)")
             return False
         
-        # Unzip filtered data
         labels, values = zip(*valid_data)
         
-        # Tạo figure với nền trắng
         fig, ax = plt.subplots(figsize=(10, 8), facecolor='white')
         
-        # Định nghĩa màu sắc giống hình mẫu (màu đậm hơn, professional)
         colors = [
-            '#5B9BD5',  # Blue
-            '#ED7D31',  # Orange/Red
-            '#A5A5A5',  # Gray
-            '#FFC000',  # Yellow
-            '#70AD47',  # Green
-            '#4472C4',  # Dark Blue
-            '#C55A11',  # Dark Orange
-            '#7030A0',  # Purple
-            '#44546A',  # Dark Gray
-            '#264478',  # Navy
+            '#5B9BD5',  
+            '#ED7D31',  
+            '#A5A5A5',  
+            '#FFC000',  
+            '#70AD47',  
+            '#4472C4',  
+            '#C55A11',  
+            '#7030A0',  
+            '#44546A',  
+            '#264478',  
         ]
         
         wedges, texts = ax.pie(
             values,
-            labels=None,  # Không hiển thị labels trên pie
+            labels=None,  
             startangle=90,
             colors=colors[:len(values)],
-            explode=[0.02] * len(values)  # Tách nhẹ các phần
+            explode=[0.02] * len(values)  
         )
         
         ax.set_title(title, fontsize=16, fontweight='bold', pad=30, color='#333333')
@@ -167,7 +155,7 @@ def create_pie_chart(df, title, output_image, label_col_idx=0, value_col_idx=1, 
         plt.axis('equal')
         plt.tight_layout()
         
-        # Save image với độ phân giải cao, nền trắng
+        # Save image
         plt.savefig(output_image, dpi=150, bbox_inches='tight', facecolor='white')
         plt.close()
         
@@ -185,7 +173,7 @@ def create_pie_chart(df, title, output_image, label_col_idx=0, value_col_idx=1, 
 def generate_report(excel_file: str, template_file: str, output_file: str, mapping: dict, chart_mapping: dict = None):
     xls = pd.ExcelFile(excel_file)
     doc = Document(template_file)
-    temp_images = []  # Track temp image files để cleanup sau
+    temp_images = []  
 
     # Process regular table placeholders
     for placeholder, config in mapping.items():
@@ -212,12 +200,12 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
             max_rows = config.get("max_rows", None)
             if max_rows and len(df) > max_rows:
                 df = df.head(max_rows)
-
+# khúc này là để tìm placeholder 
             for p in doc.paragraphs:
                 if placeholder in p.text:
                     table = doc.add_table(rows=1, cols=len(df.columns))
                     table.autofit = True
-                    set_table_borders(table)   # 👈 thêm viền
+                    set_table_borders(table)   
 
                     hdr_cells = table.rows[0].cells
                     for j, col in enumerate(df.columns):
@@ -233,7 +221,7 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
 
                     p._element.getparent().replace(p._element, table._element)
 
-            print(f"✅ Replaced {placeholder} with sheet '{sheet_name}' (rows={len(df)})")
+            print(f"Replaced {placeholder} with sheet '{sheet_name}' (rows={len(df)})")
 
         except Exception as e:
             print(f"⚠️ Could not process {placeholder}: {e}")
@@ -272,12 +260,10 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
             except Exception as e:
                 print(f"⚠️ Could not create chart for {placeholder}: {e}")
 
-    # Try to save with error handling
     try:
         doc.save(output_file)
         print(f"\n📄 Report generated: {output_file}")
     except PermissionError:
-        # Nếu file đang mở, thử tạo file mới với suffix
         import time
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         base_name = os.path.splitext(output_file)[0]
@@ -285,7 +271,6 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
         doc.save(new_output)
         print(f"\n⚠️ File gốc đang được mở. Đã lưu thành: {new_output}")
     
-    # Cleanup temporary images
     for temp_img in temp_images:
         try:
             if os.path.exists(temp_img):
@@ -319,22 +304,22 @@ if __name__ == "__main__":
         "<cpu_usage_chart>": {
             "sheet": "CPU Usage by Database",
             "title": "Chart 1. CPU Usage by Database",
-            "label_col": 1,  # Column B: Database Name
-            "value_col": 3,  # Column D: CPU Percent
+            "label_col": 1,  
+            "value_col": 3,  
             "top_n": 10
         },
         "<io_usage_chart>": {
             "sheet": "IO Usage By Database",
             "title": "Chart 2. IO Usage By Database",
-            "label_col": 1,  # Column B: Database Name
-            "value_col": 3,  # Column D: Total I/O %
+            "label_col": 1,  
+            "value_col": 3,  
             "top_n": 10
         },
         "<buffer_usage_chart>": {
             "sheet": "Total Buffer Usage by Database",
             "title": "Chart 3. Total Buffer Usage by Database",
-            "label_col": 1,  # Column B: Database Name
-            "value_col": 3,  # Column D: Buffer Pool Percent
+            "label_col": 1,  
+            "value_col": 3,  
             "top_n": 10
         },
     }
