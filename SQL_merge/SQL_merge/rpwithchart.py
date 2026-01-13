@@ -61,9 +61,8 @@ def set_table_borders(table):
     tbl.tblPr.append(tblBorders)
 
 def set_column_width(column, width_cm):
-    """Set chiều rộng cột (width_cm: chiều rộng tính bằng cm)"""
     for cell in column.cells:
-        cell.width = Inches(width_cm / 2.54)  # Convert cm to inches
+        cell.width = Inches(width_cm / 2.54)
 
 def replace_placeholder_text(doc, placeholder, replacement):
     for p in doc.paragraphs:
@@ -154,40 +153,32 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
             sheet_name = config["sheet"]
             df = pd.read_excel(xls, sheet_name=sheet_name)
             
-            # ========== TRANSPOSE LOGIC ==========
+            # ==========LOGIC của phần TRANSPOSE==========
             if config.get("transpose", False):
-                # Chọn cột trước khi transpose
                 if "columns" in config and config["columns"]:
                     col_indices = config["columns"]
                     selected_cols = [df.columns[i] for i in col_indices if i < len(df.columns)]
                     df = df[selected_cols]
                 
-                # Lưu tên cột đầu tiên gốc (ví dụ: "volume_mount_point")
                 original_first_col = df.columns[0]
                 
                 # Transpose: cột thành hàng, hàng thành cột
                 df = df.T.reset_index()
                 
-                # Đặt tên cột: cột đầu dùng tên gốc, các cột sau lấy từ hàng đầu tiên
                 if len(df.columns) > 1:
-                    # Lấy giá trị hàng đầu làm tên cột (ví dụ: D:\, E:\)
                     new_columns = [original_first_col] + [str(val) for val in df.iloc[0, 1:].tolist()]
                     df.columns = new_columns
-                    # Xóa hàng đầu vì đã dùng làm header
                     df = df.iloc[1:].reset_index(drop=True)
                 
-                # Loại bỏ các cột có tên chứa 'nan' hoặc rỗng
                 df = df.loc[:, ~df.columns.str.lower().str.contains('nan', na=False)]
                 df = df.loc[:, df.columns.str.strip() != '']
             # ====================================
             else:
-                # Không transpose: chọn cột bình thường
                 if "columns" in config and config["columns"]:
                     col_indices = config["columns"]
                     selected = [df.columns[i] for i in col_indices if i < len(df.columns)]
                     df = df[selected]
 
-            # Giới hạn số hàng (áp dụng sau khi transpose hoặc không transpose)
             max_rows = config.get("max_rows", None)
             if max_rows and len(df) > max_rows:
                 df = df.head(max_rows)
@@ -227,7 +218,6 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
                             row_cells[j].text = str(val)
                             format_cell(row_cells[j])
                             
-                            # Chỉ apply vertical nếu cột không nằm trong horizontal_columns
                             if vertical_body:
                                 col_name = df.columns[j]
                                 if col_name not in horizontal_columns:
@@ -236,7 +226,6 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
 
                     p._element.getparent().replace(p._element, table._element)
                     
-                    # ========== SET COLUMN WIDTH (nếu có config) ==========
                     if "column_widths" in config:
                         col_widths = config["column_widths"]
                         for col_idx, width_cm in enumerate(col_widths):
@@ -287,7 +276,6 @@ def generate_report(excel_file: str, template_file: str, output_file: str, mappi
         doc.save(new_output)
         print(f"\n⚠️ File đang mở. Đã lưu thành: {new_output}")
     
-    # Cleanup temp images
     for temp_img in temp_images:
         try:
             if os.path.exists(temp_img):
@@ -304,7 +292,7 @@ if __name__ == "__main__":
 
     # ========== MAPPING CỦA CÁC BẢNG ==========
     mapping = {
-        # TRANSPOSE: Chuyển cột thành hàng (tự động lấy header từ data)
+        # TRANSPOSE: Chuyển cột thành hàng
         "<volume_info>": {
             "sheet": "Volume Info",
             "columns": [0, 1, 2, 3, 4, 5],
